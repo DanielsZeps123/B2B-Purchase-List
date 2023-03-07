@@ -1,0 +1,53 @@
+#displayMap {
+    height: calc(100% - 80px);
+}
+#sidePannel {
+    background-color: #e2e2e2;
+    vertical-align: baseline;
+    max-width: 500px;
+}
+@media only screen and (max-width: 700px) {
+    #sidePannel {
+        max-width: 100%;
+    }
+}
+div.navigationIcon {
+    width: 80px;
+}
+#sidePannel .icon {
+    margin-top: -7px;
+    height: 50px;
+    width: 50px;
+}
+#sidePannel #search {
+    height: 50px;
+}
+#sidePannel #search input {
+    border: 0px;
+    border-bottom: #000000 solid 1px;
+    background-color: #ffffff00;
+    width: calc(100%-0px);
+    height: 50px;
+}
+#locations div {
+    background-size: 100% 120px;
+    border-radius: 30px;
+    line-height: normal;
+    color: #000000;
+    height: 120px;
+    padding: 0px;
+}
+#locations div h4 {
+    height: fit-content;
+}
+#locations div p {
+    bottom: 0;
+    height: fit-content;
+    font-size: 16px;
+}
+#filters2 * {
+    font-size: 18px;
+}
+#filters2 {
+    width: 100px;
+}
