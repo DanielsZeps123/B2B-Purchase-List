@@ -18,8 +18,9 @@ from . import views
 
 app_name = 'main_page'
 urlpatterns = [
-    path('<int:val>', views.mainPage, name='mainPage'),
-    path('uznemumi', views.mainPage, name='business'),
-    path('pardot', views.mainPage, name='sell'),
-    path('Pirkt', views.mainPage, name='buy'),
+    path('business', views.mainPage, name='business'),
+    path('sell', views.mainPage, name='sell'),
+    path('buy', views.mainPage, name='buy'),
+    path('login', views.logIn, name='login'),
+    path('checkLogin', views.checkLogin, name='checkLogin'),
 ]

@@ -28,16 +28,21 @@
             </div>
             <div class="">
                 <ul class="list-group list-group-horizontal">
-                    {% for x in sections %}
-                    <li class="list-group-item"><a href="/main/{{x.id}}">{{x.section}}</a></li>
-                    {% endfor %}
+                    <li class="list-group-item"><a href="/main/business">Uzņēmumi</a></li>
+                    <li class="list-group-item"><a href="/main/sell">Pārdot</a></li>
+                    <li class="list-group-item"><a href="/main/buy">Pirkt</a></li>
                   </ul>
             </div>
             <div class="navigationIcon">
-                <img class="icon" src="{% static 'images/User.png' %}" alt="Log in"/>
+                <img class="icon" src="{% static 'images/User.png' %}" alt="Menu" data-bs-toggle="collapse" data-bs-target="#profile"/>
             </div>
         </div>
     </nav>
+    <div class="collapse" id="profile">
+        <ul class="list-group list-group-horizontal">
+            <li class="list-group-item"><a href="/main/login">Log In</a></li>
+        </ul>
+    </div>
     <div class="container-fluid row p-0 m-0" id="displayMap">
         <section class="col-md collapse p-0" id="sidePannel">
             <div class="container-fluid row justify-content-between p-2 m-0" id="buying">
@@ -53,9 +58,9 @@
                         Select filter
                     </button>
                     <ul class="dropdown-menu p-0 m-0" aria-labelledby="dropdownMenuButton1">
-                        {% for x in filter %}
+                        {% for tag in tags %}
                         <li>
-                            <button onclick="funct1('{{x.filter}}')" class="dropdown-item p-1 ms-1" href="#">{{x.filter}}</button>
+                            <button onclick="funct1('{{tag.tag}}')" class="dropdown-item p-1 ms-1" href="#">{{tag.tag}}</button>
                         </li>
                         {% endfor %}
                     </ul>
