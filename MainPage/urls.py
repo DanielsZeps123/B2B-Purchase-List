@@ -21,6 +21,7 @@ urlpatterns = [
     path('business', views.mainPage, name='business'),
     path('sell', views.mainPage, name='sell'),
     path('buy', views.mainPage, name='buy'),
-    path('login', views.logIn, name='login'),
+    path('login', views.login, name='login'),
+    path('logout', views.logout, name='logout'),
     path('checkLogin', views.checkLogin, name='checkLogin'),
 ]

@@ -34,13 +34,23 @@
                   </ul>
             </div>
             <div class="navigationIcon">
+                {% if login %}
+                <img class="icon" src="{% static 'images/User-2.png' %}" alt="Menu" data-bs-toggle="collapse" data-bs-target="#profile"/>
+                {% else %}
                 <img class="icon" src="{% static 'images/User.png' %}" alt="Menu" data-bs-toggle="collapse" data-bs-target="#profile"/>
+                {% endif %}
             </div>
         </div>
     </nav>
     <div class="collapse" id="profile">
-        <ul class="list-group list-group-horizontal">
-            <li class="list-group-item"><a href="/main/login">Log In</a></li>
+        <ul class="list-group list-group-vertical">
+            {% if login %}
+            <li class="list-group-item"><a href="/main/profile">Profils</a></li>
+            <li class="list-group-item"><a href="/main/products">Raksti</a></li>
+            <li class="list-group-item"><a href="/main/logout">Atvienoties</a></li>
+            {% else %}
+            <li class="list-group-item"><a href="/main/login">Pievienoties</a></li>
+            {% endif %}
         </ul>
     </div>
     <div class="container-fluid row p-0 m-0" id="displayMap">
@@ -67,12 +77,14 @@
                   </div>
             </div>
             <div id="locations" class="container-fluid row p-2 m-0">
-                <div class="row p-0 m-0" style="background-image: url('{% static 'images/apples.jpg' %}')">
+                {% for item in items %}
+                <div class="row p-0 m-0" style="background-image: url('{% static item.image %}')">
                     <span class="align-text-bottom">
-                        <h4 class="m-0">Location name</h4>
-                        <p class="m-0">Contact info: 20000000, Address: Random locatio sad asd asd ad as dn</p>
+                        <h4 class="m-0">{{ item.product }}</h4>
+                        <p class="m-0">Contact info: {{ item.phone }}, Address: {{ item.address }}</p>
                     </span>
                 </div>
+                {% endfor %}
             </div>
         </section>
         <div class="col-sm" id="locationMap">

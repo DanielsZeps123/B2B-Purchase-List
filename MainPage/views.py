@@ -6,33 +6,38 @@ from .models import *
 
 def mainPage(request):
     context = {
-        'tags': Tag.objects.all().values() 
+        'tags': Tag.objects.all().values(),
+        'items': None,
+        'login': request.session['login']
     }
     end = request.META['PATH_INFO']
     end = end[end.rfind("/")+1:]
     if end == "buy":
+        context['items'] = Buy.objects.all().values()
         context['tags'] = Tag.objects.filter(buy=True).values()
     elif end == "sell":
+        context['items'] = Sell.objects.all().values()
         context['tags'] = Tag.objects.filter(sell=True).values()
     elif end ==  "business":
         context['tags'] = Tag.objects.filter(business=True).values()
+        print(context['items'])
     return render(request, 'mainPage.html', context)
 
-def logIn(request):
+def login(request):
     return render(request, 'loginPage.html', {})
 
+def logout(request):
+    request.session['login'] = None
+    request.session['user'] = None
+    return HttpResponseRedirect('business')
+
 def checkLogin(request):
+    try: user = request.GET['user']
+    except: user = ""
+    try: password = request.GET['password']
+    except: password = ""
 
-    try:
-        user = request.GET['user']
-    except:
-        user = ""
-    try:
-        password = request.GET['password']
-    except:
-        password = ""
-
-    users = Users.objects.filter(eMail=user, password=password).values()
+    users = User.objects.filter(eMail=user, password=password).values()
 
     if len(users) == 1:
         request.session['user'] = users[0]
