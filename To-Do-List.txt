@@ -1,0 +1,22 @@
+
+
+TO DO LIST
+
+Tasks:
+
+1. Add profile page
+2. Add design for profile page
+3. Update profile editing
+--- Add images
+4. Seperate rofile from editing
+5. Add sell/buy item editing page
+6. Add image gallery
+7. Update mobile design
+8. Test out Lighthouse
+9. Add app path in django
+10. Add image uploading
+11. Add filter selection
+12. Add filter data
+13. Write a basic search engine
+14. Add busines/buy/sell page
+15. Add geodata
