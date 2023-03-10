@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="lv">
 
 <head>
     <title>Main page</title>
@@ -24,7 +24,7 @@
     <nav class="navbar navbar-expand-sm bg-light navbar-light navigationBar p-0">
         <div class="container-fluid p-0">
             <div class="navigationIcon">
-                <img class="icon" src="{% static 'images/Search.png' %}" alt="Menu" data-bs-toggle="collapse" data-bs-target="#sidePannel"/>
+                <img class="icon" src="{% static 'images/icons/Search.png' %}" alt="Menu" data-bs-toggle="collapse" data-bs-target="#sidePannel"/>
             </div>
             <div class="">
                 <ul class="list-group list-group-horizontal">
@@ -35,9 +35,9 @@
             </div>
             <div class="navigationIcon">
                 {% if login %}
-                <img class="icon" src="{% static 'images/User-2.png' %}" alt="Menu" data-bs-toggle="collapse" data-bs-target="#profile"/>
+                <img class="icon" src="{% static 'images/icons/User-2.png' %}" alt="Menu" data-bs-toggle="collapse" data-bs-target="#profile"/>
                 {% else %}
-                <img class="icon" src="{% static 'images/User.png' %}" alt="Menu" data-bs-toggle="collapse" data-bs-target="#profile"/>
+                <img class="icon" src="{% static 'images/icons/User.png' %}" alt="Menu" data-bs-toggle="collapse" data-bs-target="#profile"/>
                 {% endif %}
             </div>
         </div>
@@ -58,7 +58,7 @@
             <div class="container-fluid row justify-content-between p-2 m-0" id="buying">
             </div>
             <div id="search" class="container-fluid m-0">
-                <img class="icon" src="{% static 'images/Searchglass.png' %}" alt="Menu"/>
+                <img class="icon" src="{% static 'images/icons/Searchglass.png' %}" alt="Menu"/>
                 <input type="text" placeholder="Search location name"/>
             </div>
             <div class="container-fluid row p-1">
@@ -78,9 +78,9 @@
             </div>
             <div id="locations" class="container-fluid row p-2 m-0">
                 {% for item in items %}
-                <div class="row p-0 m-0" style="background-image: url('{% static item.image %}')">
+                <div class="row p-2 m-0" style="background-image: url('{% static item.image %}')">
                     <span class="align-text-bottom">
-                        <h4 class="m-0">{{ item.product }}</h4>
+                        <h4 class="m-0">{{ item.title }}</h4>
                         <p class="m-0">Contact info: {{ item.phone }}, Address: {{ item.address }}</p>
                     </span>
                 </div>
