@@ -8,6 +8,9 @@ class Business(models.Model):
     address = models.CharField(max_length=100, default=None, blank=True, null=True)
     description = models.CharField(max_length=3000, default=None, blank=True, null=True)
     bussinesLogo = models.ImageField(upload_to ='MainPage/static/images/businesses/', blank=True, null=True)
+    background = models.ImageField(upload_to ='MainPage/static/images/businesses/', blank=True, null=True)
+    longitude = models.FloatField(default=True, blank=True, null=True)
+    latitude = models.FloatField(default=True, blank=True, null=True)
 
     def __str__(self):
         return str(self.title)

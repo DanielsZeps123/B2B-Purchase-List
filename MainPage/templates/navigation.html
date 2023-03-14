@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="lv">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'style/navigation.css' %}" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-light navbar-light navigationBar p-0 m-0">
+        <div class="container-fluid p-0 m-0">
+            <div class="navigationIcon">
+                <img class="icon" src="{% static 'images/icons/Search.png' %}" alt="Menu" data-bs-toggle="collapse"
+                    data-bs-target="#sidePannel" />
+            </div>
+            <div class="m-0">
+                <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item"><a href="/main/business">Uzņēmumi</a></li>
+                    <li class="list-group-item"><a href="/main/sell">Pārdot</a></li>
+                    <li class="list-group-item"><a href="/main/buy">Pirkt</a></li>
+                </ul>
+            </div>
+            <div class="navigationIcon navProfile m-0">
+                {% if login %}
+                <img class="icon" src="{% static 'images/icons/User-2.png' %}" alt="Menu" data-bs-toggle="collapse"
+                    data-bs-target="#profile" />
+                {% else %}
+                <img class="icon" src="{% static 'images/icons/User.png' %}" alt="Menu" data-bs-toggle="collapse"
+                    data-bs-target="#profile" />
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+    <div class="collapse" id="profile">
+        <ul class="list-group list-group-vertical">
+            {% if login %}
+            <li class="list-group-item"><a href="/main/profile">Profils</a></li>
+            <li class="list-group-item"><a href="/main/products">Raksti</a></li>
+            <li class="list-group-item"><a href="/main/logout">Atvienoties</a></li>
+            {% else %}
+            <li class="list-group-item"><a href="/main/login">Pievienoties</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</body>
+
+</html>

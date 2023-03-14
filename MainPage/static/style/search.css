@@ -29,8 +29,12 @@ div.navigationIcon {
     width: calc(100%-0px);
     height: 50px;
 }
+#locations a {
+    text-decoration: none;
+}
 #locations div {
-    background-size: 100% 120px;
+    background-position: center center;
+    background-size: 100% auto;
     border-radius: 30px;
     line-height: normal;
     color: #000000;
